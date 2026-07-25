@@ -69,7 +69,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
+HIST_STAMPS="%Y-%b-%d-%a %H:%M"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -125,3 +125,10 @@ alias l.="ls -a"
 alias lsrm~='ls && rm *~ && echo && ls'
 
 setopt extended_glob
+
+export PATH="$HOME/.local/bin:$PATH"
+
+# Bind Alt+C to clear the terminal.
+# ^U (Ctrl+U) kills the current command line before inserting "clear"
+# and pressing Enter, so it works even if text is already typed.
+bindkey -s '^[c' '^Uclear\n'
